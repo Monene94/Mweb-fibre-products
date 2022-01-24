@@ -1,0 +1,59 @@
+<!-- 
+<div class="w3-top">
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="#home" class="w3-bar-item w3-button"><b>BR</b> Architects</a>
+   
+      <div class="w3-right w3-hide-small">
+        <a href="#projects" class="w3-bar-item w3-button">Projects</a>
+        <a href="#about" class="w3-bar-item w3-button">About</a>
+        <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+      </div>
+    </div>
+  </div>
+  
+
+  <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+    <img class="w3-image" src="assets/img/mweb.jpg" alt="Architecture" width="1500" height="500">
+    <div class="w3-display-middle w3-margin-top w3-center">
+      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>BR</b></span> <span
+          class="w3-hide-small w3-text-light-grey">Architects</span></h1>
+    </div>
+  </header>
+  
+  <div class="w3-content w3-padding" style="max-width:1564px">
+ 
+    <div class="w3-container w3-padding-32" id="projects">
+      <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16">Select Fibre Campaign</h4>
+      <button class="btn btn-info" *ngFor="let c of campaigns" (click)="onSelectCampaign(c)">{{c.name}}</button>
+  
+      <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16">Fibre Providers</h4>
+      <form>
+        <label class="checkbox-inline" *ngFor="let prv of providers">
+          <input type="checkbox" (click)="onSelectProvider($event, prv)">{{' ' + prv}}
+        </label>
+      </form>
+  
+      <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16">Price Ranges</h4>
+      <form>
+        <label class="checkbox-inline" *ngFor="let price of priceRanges">
+          <input type="checkbox" (click)="onSelectPriceRange($event, price)">{{' ' + price.label}}
+        </label>
+      </form>
+  
+      <h4 class="w3-border-bottom w3-border-light-grey w3-padding-16">Products</h4>
+      <ul>
+        <li *ngFor="let prod of selectedProducts">{{prod.productName}} {{prod.productRate | currency: 'R'}}</li>
+      </ul>
+  
+    </div>
+  
+    <router-outlet></router-outlet>
+
+  </div>
+  
+  
+
+  <footer class="w3-center w3-black w3-padding-16">
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+        class="w3-hover-text-green">w3.css</a></p>
+  </footer> -->

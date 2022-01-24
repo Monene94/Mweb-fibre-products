@@ -1,0 +1,82 @@
+<div class="container">
+    <h6 class="text-center">Select a Fibre infrustructure below, browse the products available and complete the coverage search</h6>
+    <div class="row">
+        
+        <div class="col-sm-1 px-3" *ngFor="let logo of providerInfo; let i = index">
+            <div class="p-3" (click)="onSelectImgProvider(logo.name)">
+                <a href="#">
+                    <img [src]="logo.url" [alt]="logo.name" width="75" height="25" [title]="logo.name">
+                </a>                
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-sm-3">
+            <div class="card bg-light mb-3">
+                <div class="card-header bg-success text-white text-uppercase">Filter Products</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="selCamp" class="font-weight-bold">Select Fibre Campaign</label>
+                        <select id="selCamp" name="selCamp" class="form-control" [(ngModel)]="selectedCampaign"
+                            (change)="onSelectCampaign()">
+                            <option *ngFor="let c of campaigns" [ngValue]="c">{{c.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="chkPrv" class="font-weight-bold">Fibre Providers</label>
+                        <div id="chkPrv" name="chkPrv" class="checkbox" *ngFor="let prv of providers">
+                            <label><input type="checkbox" value="" (click)="onSelectProvider($event, prv)">{{' ' +
+                                prv}}</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="chkPrv" class="font-weight-bold">Fibre Providers</label>
+                        <div id="chkPrv" name="chkPrv" class="checkbox" *ngFor="let price of priceRanges">
+                            <label><input type="checkbox" value="" (click)="onSelectPriceRange($event, price)">{{' ' +
+                                price.label}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+
+
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 pb-4" *ngFor="let prod of selectedProducts">
+                    <div class="card">
+                        <div class="card-header bg-dark text-white">                            
+                            <strong>{{prod.productRate | currency: 'R'}}</strong>
+                            <span class="float-right">{{prod.lineSpeed/1024}}Mbps</span>
+                        </div>                      
+                        <div class="card-body">
+                            <div class="text-center">                                
+                                <img src="{{getLog(prod.provider)}}">
+                            </div>
+                            
+                            <p class="card-text font-weight-bold text-primary">{{prod.productName}}</p>                           
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item" *ngFor="let hl of prod.highlights">{{hl}}</li>
+                        </ul>
+
+                        <div class="card-footer bg-transparent">
+                            <a href="#" class="btn btn-success btn-block">Check coverage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+</div>
